@@ -1,16 +1,23 @@
 import CMS from "@staticcms/core";
-import { useEffect } from "react";
+import { useEffect, FC } from "react";
 import '@staticcms/core/dist/main.css';
 
 import config from "@/config";
 
 import type { TemplatePreviewProps } from "@staticcms/core";
-import type { FC } from "react";
 
 interface PostData {
   title: string;
   date: string;
   body: string;
+  entry: {
+    data: {
+      title: string;
+      date: string;
+      body: string;
+    };
+  };
+  widgetFor: (name: string) => string;
 }
 
 const PostPreview: FC<TemplatePreviewProps<PostData>> = ({ entry, widgetFor }) => {
